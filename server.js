@@ -40,7 +40,7 @@ return  res.render('dashboard')
 
 app.get('/', (req, res) => {return    res.render('index')})
 
-app.get('/guest', (req, res) => {return res.render('guest')})
+app.get('/guest.html', (req, res) => {return res.render('guest')})
 
 app.post('/signin', (req, res) => {
     const { email, password } = req.body;
