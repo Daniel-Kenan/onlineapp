@@ -19,12 +19,43 @@
             margin-top: 50px;
         }
 
-        .card {
-            transition: transform 0.2s;
+        table {
+            width: 100%;
         }
 
-        .card:hover {
-            transform: scale(1.05);
+        table, th, td {
+            border: 1px solid #dee2e6;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #46b8da;
         }
     </style>
 </head>
@@ -33,19 +64,26 @@
     <div class="container">
         <h1 class="text-center mb-4">Schools Information (Guest View)</h1>
 
-        <div class="row">
-            <% schools.forEach(school => { %>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= school.name %></h5>
-                            <p class="card-text">Enrolled Students: <%= school.enrolledStudents %></p>
-                            <p class="card-text">Pending Applications: <%= school.pendingApplications %></p>
-                        </div>
-                    </div>
-                </div>
-            <% }); %>
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>School Name</th>
+                    <!-- <th>Enrolled Students</th>
+                    <th>Pending Applications</th> -->
+                    <th>Apply</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% schools.forEach(school => { %>
+                    <tr>
+                        <td><%= school.name %></td>
+                        <!-- <td><%= school.enrolledStudents %></td>
+                        <td><%= school.pendingApplications %></td> -->
+                        <td><button class="apply-button" onclick="location.href='submit-application'">Apply</button></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
     </div>
 
     <!-- Bootstrap JS (optional) -->
